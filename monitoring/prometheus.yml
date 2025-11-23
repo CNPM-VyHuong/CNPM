@@ -60,3 +60,15 @@ scrape_configs:
       - targets: ["k6-exporter:6565"]
     scrape_interval: 5s
     scrape_timeout: 3s
+
+  # ===== Unit Tests Metrics =====
+  - job_name: "unit-tests"
+    metrics_path: "/actuator/prometheus"
+    scrape_interval: 10s
+    static_configs:
+      - targets: ["localhost:8081", "localhost:8088", "localhost:8082", "localhost:8084", "localhost:8083", "localhost:8089"]
+    metric_relabel_configs:
+      - source_labels: [__name__]
+        regex: 'tests_.*'
+        action: keep
+
