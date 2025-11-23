@@ -234,11 +234,11 @@ services:
   metrics-server:
     image: python:3.11-slim
     container_name: metrics-server
-    working_dir: /app
+    working_dir: /workspace
     volumes:
-      - ./scripts/serve-metrics.py:/app/serve-metrics.py
-      - ./monitoring/metrics:/app/monitoring/metrics
-    command: python serve-metrics.py
+      - ./scripts/serve-metrics.py:/workspace/scripts/serve-metrics.py
+      - ./monitoring/metrics:/workspace/monitoring/metrics
+    command: python /workspace/scripts/serve-metrics.py
     ports:
       - "9091:9091"
     networks:

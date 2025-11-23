@@ -8,7 +8,18 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 import os
 
-METRICS_FILE = Path(__file__).parent.parent / 'monitoring' / 'metrics' / 'unit-tests.prom'
+# Get absolute path - works from any directory
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = SCRIPT_DIR.parent
+METRICS_FILE = PROJECT_ROOT / 'monitoring' / 'metrics' / 'unit-tests.prom'
+
+# Fallback for Docker container
+if not METRICS_FILE.exists():
+    docker_metrics = Path('/workspace/monitoring/metrics/unit-tests.prom')
+    if docker_metrics.exists():
+        METRICS_FILE = docker_metrics
+
+print(f"📊 Looking for metrics at: {METRICS_FILE}", flush=True)
 
 class MetricsHandler(BaseHTTPRequestHandler):
     def do_GET(self):
