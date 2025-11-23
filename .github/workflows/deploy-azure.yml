@@ -31,7 +31,7 @@ jobs:
 
       - name: Docker Login
         run: |
-          echo "$REGISTRY_PASSWORD" | docker login -u "$REGISTRY_USERNAME" --password-stdin "$REGISTRY_URL"
+          echo "${{ secrets.AZURE_REGISTRY_PASSWORD }}" | docker login -u "${{ secrets.AZURE_REGISTRY_USERNAME }}" --password-stdin "${{ secrets.AZURE_REGISTRY_URL }}"
 
       - name: Build Java services
         shell: bash
@@ -39,8 +39,8 @@ jobs:
           for service in api-gateway eureka_server order_service payment_service product_service restaurant-service user_service drone_service; do
             echo "Building $service..."
             cd DoAnCNPM_Backend/$service
-            docker build -t "$REGISTRY_URL/${service}:latest" .
-            docker push "$REGISTRY_URL/${service}:latest"
+            docker build -t "${{ secrets.AZURE_REGISTRY_URL }}/${service}:latest" .
+            docker push "${{ secrets.AZURE_REGISTRY_URL }}/${service}:latest"
             cd ../../
           done
 
@@ -49,8 +49,8 @@ jobs:
         run: |
           cd DoAnCNPM_Frontend/web
           npm install --legacy-peer-deps
-          docker build -t "$REGISTRY_URL/web:latest" .
-          docker push "$REGISTRY_URL/web:latest"
+          docker build -t "${{ secrets.AZURE_REGISTRY_URL }}/web:latest" .
+          docker push "${{ secrets.AZURE_REGISTRY_URL }}/web:latest"
 
       - name: Azure Login
         uses: azure/login@v1
@@ -75,7 +75,7 @@ jobs:
             --template-file "infra/containerApps.bicep" \
             --parameters \
               location="eastasia" \
-              containerRegistryUrl="$REGISTRY_URL" \
-              containerRegistryUsername="$REGISTRY_USERNAME" \
-              containerRegistryPassword="$REGISTRY_PASSWORD"
+              containerRegistryUrl="${{ secrets.AZURE_REGISTRY_URL }}" \
+              containerRegistryUsername="${{ secrets.AZURE_REGISTRY_USERNAME }}" \
+              containerRegistryPassword="${{ secrets.AZURE_REGISTRY_PASSWORD }}"
 
