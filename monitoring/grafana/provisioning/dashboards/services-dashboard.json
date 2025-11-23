@@ -273,6 +273,101 @@
       "title": "📊 Services Status Overview",
       "transformations": [{"id": "organize", "options": {"excludeByName": {"Time": true, "__name__": true}, "indexByName": {}, "renameByName": {"Value": "Status", "job": "Service", "instance": "Instance"}}}],
       "type": "table"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "thresholds"},
+          "mappings": [],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "red", "value": null}, {"color": "yellow", "value": 5}, {"color": "green", "value": 10}]}
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 4, "w": 3, "x": 0, "y": 44},
+      "id": 11,
+      "options": {"colorMode": "background", "graphMode": "none", "justifyMode": "center", "orientation": "auto", "reduceOptions": {"values": false, "fields": "", "calcs": ["lastNotNull"]}, "text": {}, "textMode": "auto"},
+      "pluginVersion": "8.0.0",
+      "targets": [{"expr": "sum(unit_tests_passed)", "format": "time_series", "intervalFactor": 2, "refId": "A"}],
+      "title": "✅ Tests Passed",
+      "type": "stat"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "thresholds"},
+          "mappings": [],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "yellow", "value": 1}, {"color": "red", "value": 3}]}
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 4, "w": 3, "x": 3, "y": 44},
+      "id": 12,
+      "options": {"colorMode": "background", "graphMode": "none", "justifyMode": "center", "orientation": "auto", "reduceOptions": {"values": false, "fields": "", "calcs": ["lastNotNull"]}, "text": {}, "textMode": "auto"},
+      "pluginVersion": "8.0.0",
+      "targets": [{"expr": "sum(unit_tests_failed)", "format": "time_series", "intervalFactor": 2, "refId": "A"}],
+      "title": "❌ Tests Failed",
+      "type": "stat"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "thresholds"},
+          "mappings": [],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "red", "value": null}, {"color": "yellow", "value": 50}, {"color": "green", "value": 80}]},
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 4, "w": 3, "x": 6, "y": 44},
+      "id": 13,
+      "options": {"colorMode": "background", "graphMode": "none", "justifyMode": "center", "orientation": "auto", "reduceOptions": {"values": false, "fields": "", "calcs": ["lastNotNull"]}, "text": {}, "textMode": "auto"},
+      "pluginVersion": "8.0.0",
+      "targets": [{"expr": "avg(unit_tests_success_rate)", "format": "time_series", "intervalFactor": 2, "refId": "A"}],
+      "title": "📊 Success Rate %",
+      "type": "stat"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "palette-classic"},
+          "custom": {"axisLabel": "", "axisPlacement": "auto", "barAlignment": 0, "drawStyle": "line", "fillOpacity": 20, "gradientMode": "none", "hideFrom": {"tooltip": false, "viz": false, "legend": false}, "lineInterpolation": "smooth", "lineWidth": 2, "pointSize": 5, "scaleDistribution": {"type": "linear"}, "showPoints": "auto", "spanNulls": true, "stacking": {"group": "A", "mode": "none"}, "thresholdsStyle": {"mode": "off"}},
+          "mappings": [],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}]},
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 8, "w": 12, "x": 9, "y": 44},
+      "id": 14,
+      "options": {"legend": {"calcs": ["last"], "displayMode": "table", "placement": "bottom", "showLegend": true}, "tooltip": {"mode": "multi", "sort": "desc"}},
+      "pluginVersion": "8.0.0",
+      "targets": [{"expr": "unit_tests_total", "format": "time_series", "intervalFactor": 2, "legendFormat": "{{service}}", "refId": "A"}],
+      "title": "📝 Tests by Service",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "palette-classic"},
+          "custom": {"axisLabel": "Time (seconds)", "axisPlacement": "auto", "barAlignment": 0, "drawStyle": "bars", "fillOpacity": 100, "gradientMode": "none", "hideFrom": {"tooltip": false, "viz": false, "legend": false}, "lineInterpolation": "linear", "lineWidth": 1, "pointSize": 5, "scaleDistribution": {"type": "linear"}, "showPoints": "never", "spanNulls": false, "stacking": {"group": "A", "mode": "none"}, "thresholdsStyle": {"mode": "off"}},
+          "mappings": [],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}]},
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 44},
+      "id": 15,
+      "options": {"legend": {"calcs": ["mean", "max"], "displayMode": "table", "placement": "bottom", "showLegend": true}, "tooltip": {"mode": "multi", "sort": "desc"}},
+      "pluginVersion": "8.0.0",
+      "targets": [{"expr": "unit_tests_duration_seconds", "format": "time_series", "intervalFactor": 2, "legendFormat": "{{service}}", "refId": "A"}],
+      "title": "⏱️ Test Execution Time",
+      "type": "timeseries"
     }
   ],
   "refresh": "5s",

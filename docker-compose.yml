@@ -230,6 +230,22 @@ services:
     depends_on:
       - prometheus
 
+  # ===== Unit Test Metrics Server =====
+  metrics-server:
+    image: python:3.11-slim
+    container_name: metrics-server
+    working_dir: /app
+    volumes:
+      - ./scripts/serve-metrics.py:/app/serve-metrics.py
+      - ./monitoring/metrics:/app/monitoring/metrics
+    command: python serve-metrics.py
+    ports:
+      - "9091:9091"
+    networks:
+      - foodfast-net
+    depends_on:
+      - prometheus
+
 
 
 volumes:
