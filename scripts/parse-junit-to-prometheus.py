@@ -22,8 +22,14 @@ def parse_junit_files():
             tree = ET.parse(junit_file)
             root = tree.getroot()
             
-            # Extract test suite info
-            service_name = os.path.dirname(junit_file).split(os.sep)[0]
+            # Extract service name from path: DoAnCNPM_Backend/service_name/target/surefire-reports/...
+            path_parts = junit_file.replace('\\', '/').split('/')
+            # Find service directory (parent of 'target')
+            service_name = 'unknown'
+            for i, part in enumerate(path_parts):
+                if part == 'target' and i > 0:
+                    service_name = path_parts[i - 1]
+                    break
             
             tests = int(root.get('tests', 0))
             failures = int(root.get('failures', 0))
