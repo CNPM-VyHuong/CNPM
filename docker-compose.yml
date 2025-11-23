@@ -220,10 +220,9 @@ services:
     image: grafana/k6:latest
     container_name: k6
     volumes:
-      - ./k6/tests:/scripts
-      - ./k6/run-all-tests.sh:/run-all-tests.sh
-    entrypoint: ["/bin/sh", "-c"]
-    command: "sh /run-all-tests.sh"
+      - ./scripts:/scripts
+    entrypoint: ["k6"]
+    command: ["run", "/scripts/quick-k6-test.js"]
     ports:
       - "9464:9464"
     networks:

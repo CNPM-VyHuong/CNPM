@@ -1,0 +1,49 @@
+name: fastfood-cnpm
+metadata:
+  template: fastfood-cnpm@0.1.0
+services:
+  api-gateway:
+    project: ./DoAnCNPM_Backend/api-gateway
+    language: java
+    docker:
+      path: ./Dockerfile
+  eureka-server:
+    project: ./DoAnCNPM_Backend/eureka_server
+    language: java
+    docker:
+      path: ./Dockerfile
+  order-service:
+    project: ./DoAnCNPM_Backend/order_service
+    language: java
+    docker:
+      path: ./Dockerfile
+  payment-service:
+    project: ./DoAnCNPM_Backend/payment_service
+    language: java
+    docker:
+      path: ./Dockerfile
+  product-service:
+    project: ./DoAnCNPM_Backend/product_service
+    language: java
+    docker:
+      path: ./Dockerfile
+  restaurant-service:
+    project: ./DoAnCNPM_Backend/restaurant-service
+    language: java
+    docker:
+      path: ./Dockerfile
+  user-service:
+    project: ./DoAnCNPM_Backend/user_service
+    language: java
+    docker:
+      path: ./Dockerfile
+  drone-service:
+    project: ./DoAnCNPM_Backend/drone_service
+    language: java
+    docker:
+      path: ./Dockerfile
+  web:
+    project: ./DoAnCNPM_Frontend/web
+    language: javascript
+    docker:
+      path: ./Dockerfile
