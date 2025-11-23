@@ -26,7 +26,19 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: health,info,metrics,prometheus
+  prometheus:
+    metrics:
+      export:
+        enabled: true
   endpoint:
     health:
       show-details: always
+    metrics:
+      enabled: true
+
+logging:
+  level:
+    root: INFO
+    '[com.foodfast]': DEBUG
+    '[org.springframework.test]': DEBUG

@@ -220,15 +220,20 @@ services:
     image: grafana/k6:latest
     container_name: k6
     volumes:
-      - ./scripts:/scripts
+      - ./k6/scripts:/scripts
     entrypoint: ["k6"]
-    command: ["run", "/scripts/quick-k6-test.js"]
+    command: ["run", "/scripts/k6-test-with-metrics.js"]
     ports:
       - "9464:9464"
+    environment:
+      - K6_PROMETHEUS_RW_SERVER_URL=http://prometheus:9090/api/v1/write
+      - K6_VUS=10
+      - K6_DURATION=2m
     networks:
       - foodfast-net
     depends_on:
       - prometheus
+      - api-gateway
 
 
 
