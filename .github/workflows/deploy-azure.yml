@@ -24,12 +24,23 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      - name: Docker Login
+      - name: Build Java services with Maven
+        shell: bash
+        run: |
+          for service in api-gateway eureka_server order_service payment_service product_service restaurant-service user_service drone_service; do
+            echo "Building JAR for $service..."
+            cd DoAnCNPM_Backend/$service
+            chmod +x mvnw
+            ./mvnw clean package -DskipTests
+            cd ../../
+          done
+
+      - name: Docker login
         run: |
           REGISTRY_URL=$(echo "${{ secrets.AZURE_REGISTRY_URL }}" | tr -d '\n')
           REGISTRY_USERNAME=$(echo "${{ secrets.AZURE_REGISTRY_USERNAME }}" | tr -d '\n')
