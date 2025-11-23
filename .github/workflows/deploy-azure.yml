@@ -38,17 +38,9 @@ jobs:
           password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
 
       - name: Build and push Java services
+        shell: bash
         run: |
-          services=(
-            "api-gateway"
-            "eureka_server"
-            "order_service"
-            "payment_service"
-            "product_service"
-            "restaurant-service"
-            "user_service"
-            "drone_service"
-          )
+          services=("api-gateway" "eureka_server" "order_service" "payment_service" "product_service" "restaurant-service" "user_service" "drone_service")
           
           for service in "${services[@]}"; do
             echo "Building $service..."
@@ -59,12 +51,13 @@ jobs:
           done
 
       - name: Build and push React web app
+        shell: bash
         run: |
           echo "Building React web app..."
           cd DoAnCNPM_Frontend/web
           docker build -t ${{ secrets.AZURE_REGISTRY_URL }}/web:latest .
           docker push ${{ secrets.AZURE_REGISTRY_URL }}/web:latest
-          cd ../../
+          cd ../..
 
       - name: Azure CLI login
         uses: azure/login@v1
