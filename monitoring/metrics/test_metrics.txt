@@ -1,0 +1,47 @@
+# HELP test_count_total Total number of tests
+# TYPE test_count_total counter
+test_count_total 48 1763945984780
+# HELP test_pass_count Total number of passed tests
+# TYPE test_pass_count counter
+test_pass_count 48 1763945984780
+# HELP test_fail_count Total number of failed tests
+# TYPE test_fail_count counter
+test_fail_count 0 1763945984780
+# HELP test_pass_rate_percent Overall test pass rate
+# TYPE test_pass_rate_percent gauge
+test_pass_rate_percent 100.0 1763945984780
+# HELP test_execution_time_seconds Total test execution time
+# TYPE test_execution_time_seconds gauge
+test_execution_time_seconds 109.1 1763945984780
+# HELP test_count_by_service Test count by service
+# TYPE test_count_by_service gauge
+test_count_by_service{service="user_service"} 0 1763945984780
+test_pass_count_by_service{service="user_service"} 0 1763945984780
+test_fail_count_by_service{service="user_service"} 0 1763945984780
+test_pass_rate_by_service{service="user_service"} 0 1763945984780
+test_execution_time_by_service{service="user_service"} 0 1763945984780
+test_count_by_service{service="product_service"} 27 1763945984780
+test_pass_count_by_service{service="product_service"} 27 1763945984780
+test_fail_count_by_service{service="product_service"} 0 1763945984780
+test_pass_rate_by_service{service="product_service"} 100.0 1763945984780
+test_execution_time_by_service{service="product_service"} 5.16 1763945984780
+test_count_by_service{service="drone_service"} 13 1763945984780
+test_pass_count_by_service{service="drone_service"} 13 1763945984780
+test_fail_count_by_service{service="drone_service"} 0 1763945984780
+test_pass_rate_by_service{service="drone_service"} 100.0 1763945984780
+test_execution_time_by_service{service="drone_service"} 47.91 1763945984780
+test_count_by_service{service="order_service"} 4 1763945984780
+test_pass_count_by_service{service="order_service"} 4 1763945984780
+test_fail_count_by_service{service="order_service"} 0 1763945984780
+test_pass_rate_by_service{service="order_service"} 100.0 1763945984780
+test_execution_time_by_service{service="order_service"} 24.72 1763945984780
+test_count_by_service{service="payment_service"} 4 1763945984780
+test_pass_count_by_service{service="payment_service"} 4 1763945984780
+test_fail_count_by_service{service="payment_service"} 0 1763945984780
+test_pass_rate_by_service{service="payment_service"} 100.0 1763945984780
+test_execution_time_by_service{service="payment_service"} 31.31 1763945984780
+test_count_by_service{service="restaurant_service"} 0 1763945984780
+test_pass_count_by_service{service="restaurant_service"} 0 1763945984780
+test_fail_count_by_service{service="restaurant_service"} 0 1763945984780
+test_pass_rate_by_service{service="restaurant_service"} 0 1763945984780
+test_execution_time_by_service{service="restaurant_service"} 0 1763945984780

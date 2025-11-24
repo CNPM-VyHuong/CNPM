@@ -236,9 +236,9 @@ services:
     container_name: metrics-server
     working_dir: /workspace
     volumes:
-      - ./scripts/serve-metrics.py:/workspace/scripts/serve-metrics.py
-      - ./monitoring/metrics:/workspace/monitoring/metrics
-    command: python /workspace/scripts/serve-metrics.py
+      - ./monitoring/metrics_server.py:/workspace/metrics_server.py
+      - ./monitoring/metrics:/metrics
+    command: python /workspace/metrics_server.py
     ports:
       - "9091:9091"
     networks:

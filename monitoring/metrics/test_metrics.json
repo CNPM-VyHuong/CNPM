@@ -1,0 +1,68 @@
+{
+  "timestamp": "2025-11-24T07:59:44.524925",
+  "services": {
+    "user_service": {
+      "total_tests": 0,
+      "passed_tests": 0,
+      "failed_tests": 0,
+      "execution_time_sec": 0,
+      "pass_rate_percent": 0,
+      "test_classes": 0,
+      "status": "PASS"
+    },
+    "product_service": {
+      "total_tests": 27,
+      "passed_tests": 27,
+      "failed_tests": 0,
+      "execution_time_sec": 5.16,
+      "pass_rate_percent": 100.0,
+      "test_classes": 4,
+      "status": "PASS"
+    },
+    "drone_service": {
+      "total_tests": 13,
+      "passed_tests": 13,
+      "failed_tests": 0,
+      "execution_time_sec": 47.91,
+      "pass_rate_percent": 100.0,
+      "test_classes": 3,
+      "status": "PASS"
+    },
+    "order_service": {
+      "total_tests": 4,
+      "passed_tests": 4,
+      "failed_tests": 0,
+      "execution_time_sec": 24.72,
+      "pass_rate_percent": 100.0,
+      "test_classes": 3,
+      "status": "PASS"
+    },
+    "payment_service": {
+      "total_tests": 4,
+      "passed_tests": 4,
+      "failed_tests": 0,
+      "execution_time_sec": 31.31,
+      "pass_rate_percent": 100.0,
+      "test_classes": 3,
+      "status": "PASS"
+    },
+    "restaurant_service": {
+      "total_tests": 0,
+      "passed_tests": 0,
+      "failed_tests": 0,
+      "execution_time_sec": 0,
+      "pass_rate_percent": 0,
+      "test_classes": 0,
+      "status": "PASS"
+    }
+  },
+  "summary": {
+    "total_tests": 48,
+    "total_passed": 48,
+    "total_failed": 0,
+    "total_time_sec": 109.1,
+    "pass_rate_percent": 100.0,
+    "services_count": 6,
+    "status": "PASS"
+  }
+}

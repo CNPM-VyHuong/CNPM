@@ -291,9 +291,9 @@
       "options": {"footer": {"countRows": false, "fields": "", "reducer": ["sum"], "show": true}, "showHeader": true, "sortBy": [{"displayName": "Service", "desc": false}]},
       "pluginVersion": "8.0.0",
       "targets": [
-        {"expr": "sum by (service) (unit_tests_passed)", "format": "table", "instant": true, "intervalFactor": 2, "refId": "A"},
-        {"expr": "sum by (service) (unit_tests_failed)", "format": "table", "instant": true, "intervalFactor": 2, "refId": "B"},
-        {"expr": "sum by (service) (unit_tests_total)", "format": "table", "instant": true, "intervalFactor": 2, "refId": "C"}
+        {"expr": "test_pass_count_by_service", "format": "table", "instant": true, "intervalFactor": 2, "refId": "A"},
+        {"expr": "test_fail_count_by_service", "format": "table", "instant": true, "intervalFactor": 2, "refId": "B"},
+        {"expr": "test_count_by_service", "format": "table", "instant": true, "intervalFactor": 2, "refId": "C"}
       ],
       "title": "✅ Test Results by Service",
       "transformations": [
@@ -328,7 +328,7 @@
       "id": 13,
       "options": {"footer": {"countRows": false, "fields": "", "reducer": ["sum"], "show": true}, "showHeader": true, "sortBy": [{"displayName": "Service", "desc": false}]},
       "pluginVersion": "8.0.0",
-      "targets": [{"expr": "sum by (service) (unit_tests_success_rate)", "format": "table", "instant": true, "intervalFactor": 2, "refId": "A"}],
+      "targets": [{"expr": "test_pass_rate_by_service * 100", "format": "table", "instant": true, "intervalFactor": 2, "refId": "A"}],
       "title": "📊 Success Rate by Service %",
       "transformations": [
         {
@@ -359,9 +359,9 @@
       "options": {"legend": {"calcs": ["last", "mean", "max"], "displayMode": "table", "placement": "bottom", "showLegend": true}, "tooltip": {"mode": "multi", "sort": "desc"}},
       "pluginVersion": "8.0.0",
       "targets": [
-        {"expr": "sum by (service) (rate(unit_tests_total[5m]))", "format": "time_series", "intervalFactor": 2, "legendFormat": "{{service}} - Total", "refId": "A"},
-        {"expr": "sum by (service) (rate(unit_tests_passed[5m]))", "format": "time_series", "intervalFactor": 2, "legendFormat": "{{service}} - Passed", "refId": "B"},
-        {"expr": "sum by (service) (rate(unit_tests_failed[5m]))", "format": "time_series", "intervalFactor": 2, "legendFormat": "{{service}} - Failed", "refId": "C"}
+        {"expr": "test_count_by_service", "format": "time_series", "intervalFactor": 2, "legendFormat": "{{service}} - Total", "refId": "A"},
+        {"expr": "test_pass_count_by_service", "format": "time_series", "intervalFactor": 2, "legendFormat": "{{service}} - Passed", "refId": "B"},
+        {"expr": "test_fail_count_by_service", "format": "time_series", "intervalFactor": 2, "legendFormat": "{{service}} - Failed", "refId": "C"}
       ],
       "title": "📈 Test Rate Trends by Service",
       "type": "timeseries"
@@ -382,7 +382,7 @@
       "id": 15,
       "options": {"legend": {"calcs": ["mean", "max", "min"], "displayMode": "table", "placement": "bottom", "showLegend": true}, "tooltip": {"mode": "multi", "sort": "desc"}},
       "pluginVersion": "8.0.0",
-      "targets": [{"expr": "sum by (service) (unit_tests_duration_seconds)", "format": "time_series", "intervalFactor": 2, "legendFormat": "{{service}}", "refId": "A"}],
+      "targets": [{"expr": "test_execution_time_by_service", "format": "time_series", "intervalFactor": 2, "legendFormat": "{{service}}", "refId": "A"}],
       "title": "⏱️ Test Execution Time by Service",
       "type": "timeseries"
     }
