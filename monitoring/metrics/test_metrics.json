@@ -1,38 +1,38 @@
 {
-  "timestamp": "2025-11-24T07:59:44.524925",
+  "timestamp": "2025-11-24T08:58:15.836673",
   "services": {
     "user_service": {
-      "total_tests": 0,
-      "passed_tests": 0,
-      "failed_tests": 0,
-      "execution_time_sec": 0,
-      "pass_rate_percent": 0,
-      "test_classes": 0,
-      "status": "PASS"
+      "total_tests": 48,
+      "passed_tests": 47,
+      "failed_tests": 1,
+      "execution_time_sec": 72.45,
+      "pass_rate_percent": 97.92,
+      "test_classes": 5,
+      "status": "FAIL"
     },
     "product_service": {
       "total_tests": 27,
       "passed_tests": 27,
       "failed_tests": 0,
-      "execution_time_sec": 5.16,
+      "execution_time_sec": 4.56,
       "pass_rate_percent": 100.0,
       "test_classes": 4,
       "status": "PASS"
     },
     "drone_service": {
       "total_tests": 13,
-      "passed_tests": 13,
-      "failed_tests": 0,
-      "execution_time_sec": 47.91,
-      "pass_rate_percent": 100.0,
+      "passed_tests": 12,
+      "failed_tests": 1,
+      "execution_time_sec": 45.32,
+      "pass_rate_percent": 92.31,
       "test_classes": 3,
-      "status": "PASS"
+      "status": "FAIL"
     },
     "order_service": {
       "total_tests": 4,
       "passed_tests": 4,
       "failed_tests": 0,
-      "execution_time_sec": 24.72,
+      "execution_time_sec": 25.23,
       "pass_rate_percent": 100.0,
       "test_classes": 3,
       "status": "PASS"
@@ -41,28 +41,28 @@
       "total_tests": 4,
       "passed_tests": 4,
       "failed_tests": 0,
-      "execution_time_sec": 31.31,
+      "execution_time_sec": 32.33,
       "pass_rate_percent": 100.0,
       "test_classes": 3,
       "status": "PASS"
     },
     "restaurant_service": {
-      "total_tests": 0,
-      "passed_tests": 0,
+      "total_tests": 20,
+      "passed_tests": 20,
       "failed_tests": 0,
-      "execution_time_sec": 0,
-      "pass_rate_percent": 0,
-      "test_classes": 0,
+      "execution_time_sec": 24.02,
+      "pass_rate_percent": 100.0,
+      "test_classes": 3,
       "status": "PASS"
     }
   },
   "summary": {
-    "total_tests": 48,
-    "total_passed": 48,
-    "total_failed": 0,
-    "total_time_sec": 109.1,
-    "pass_rate_percent": 100.0,
+    "total_tests": 116,
+    "total_passed": 114,
+    "total_failed": 2,
+    "total_time_sec": 203.91,
+    "pass_rate_percent": 98.28,
     "services_count": 6,
-    "status": "PASS"
+    "status": "FAIL"
   }
 }

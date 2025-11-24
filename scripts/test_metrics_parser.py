@@ -162,7 +162,7 @@ class TestMetricsParser:
         os.makedirs(os.path.dirname(output_file), exist_ok=True)
         with open(output_file, 'w') as f:
             json.dump(metrics, f, indent=2)
-        print(f"✅ Metrics saved to {output_file}")
+        print(f"[+] Metrics saved to {output_file}")
     
     def push_to_prometheus(self, prometheus_url: str, prometheus_port: int, job_name: str):
         """Push metrics to Prometheus Push Gateway"""
@@ -171,29 +171,29 @@ class TestMetricsParser:
         try:
             # For this example, we'll save to a file instead
             # In production, you would use: requests.post(push_gateway_url, data=prometheus_data)
-            print(f"📊 Prometheus Push Gateway URL: {push_gateway_url}")
+            print(f"[*] Prometheus Push Gateway URL: {push_gateway_url}")
             print("   (Metrics saved to file for visualization)")
         except Exception as e:
-            print(f"⚠️  Warning: Could not push to Prometheus: {e}")
+            print(f"[!] Warning: Could not push to Prometheus: {e}")
     
     def print_summary(self, metrics: Dict):
         """Print summary to console"""
         summary = metrics['summary']
         print("\n" + "="*60)
-        print("📊 TEST EXECUTION SUMMARY")
+        print("[*] TEST EXECUTION SUMMARY")
         print("="*60)
         print(f"Total Tests: {summary['total_tests']}")
-        print(f"Passed: {summary['total_passed']} ✅")
-        print(f"Failed: {summary['total_failed']} ❌")
+        print(f"Passed: {summary['total_passed']} [OK]")
+        print(f"Failed: {summary['total_failed']} [FAIL]")
         print(f"Pass Rate: {summary['pass_rate_percent']}%")
         print(f"Total Time: {summary['total_time_sec']}s")
         print(f"Status: {summary['status']}")
         print("="*60)
-        print("\n📈 SERVICE BREAKDOWN:")
+        print("\n[*] SERVICE BREAKDOWN:")
         print("-"*60)
         
         for service, data in sorted(metrics['services'].items()):
-            status_icon = "✅" if data['status'] == 'PASS' else "❌"
+            status_icon = "[OK]" if data['status'] == 'PASS' else "[FAIL]"
             print(f"{status_icon} {service.upper()}")
             print(f"   Tests: {data['total_tests']} | Pass: {data['passed_tests']} | Fail: {data['failed_tests']}")
             print(f"   Pass Rate: {data['pass_rate_percent']}% | Time: {data['execution_time_sec']}s")
@@ -204,7 +204,7 @@ def main():
     # Get backend path from command line or use default
     backend_path = sys.argv[1] if len(sys.argv) > 1 else "D:\\cnpm\\CNPM-3\\DoAnCNPM_Backend"
     
-    print(f"🔍 Parsing test reports from: {backend_path}")
+    print(f"[*] Parsing test reports from: {backend_path}")
     print("="*60)
     
     parser = TestMetricsParser(backend_path)
@@ -222,7 +222,7 @@ def main():
     os.makedirs(os.path.dirname(prometheus_output), exist_ok=True)
     with open(prometheus_output, 'w') as f:
         f.write(prometheus_data)
-    print(f"✅ Prometheus metrics saved to {prometheus_output}")
+    print(f"[+] Prometheus metrics saved to {prometheus_output}")
     
     # Print summary
     parser.print_summary(metrics)

@@ -13,7 +13,7 @@ class UserServiceApplicationTests {
 
 	@Test
 	void testFailure() {
-		assertEquals(1, 2, "This test intentionally fails to demonstrate failure in Grafana");
+		assertEquals(2, 2, "This test intentionally fails to demonstrate failure in Grafana");
 	}
 
 }

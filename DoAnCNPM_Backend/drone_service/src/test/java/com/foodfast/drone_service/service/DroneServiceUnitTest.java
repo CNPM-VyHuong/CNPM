@@ -120,8 +120,10 @@ class DroneServiceUnitTest {
     @Test
     void testGetDronesByStatus() {
         Drone d1 = new Drone(); d1.setStatus("AVAILABLE");
+        Drone d2 = new Drone(); d2.setStatus("AVAILABLE");
+        Drone d3 = new Drone(); d3.setStatus("AVAILABLE");
 
-        when(droneRepository.findByStatus("AVAILABLE")).thenReturn(List.of(d1));
+        when(droneRepository.findByStatus("AVAILABLE")).thenReturn(List.of(d1, d2, d3));
 
         List<Drone> result = droneService.getDronesByStatus("AVAILABLE");
 
