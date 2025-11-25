@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 @DisplayName("UserController Unit Tests")
@@ -28,7 +27,6 @@ class UserControllerUnitTest {
     private UserController userController;
 
     private User testUser;
-    private UserDTO testUserDTO;
 
     @BeforeEach
     void setUp() {
@@ -41,8 +39,6 @@ class UserControllerUnitTest {
                 .phone("1234567890")
                 .role(Role.CUSTOMER)
                 .build();
-
-        testUserDTO = new UserDTO(1L, "John Doe", "john@example.com", "1234567890", Role.CUSTOMER);
     }
 
     // ============ GET USERS TESTS ============

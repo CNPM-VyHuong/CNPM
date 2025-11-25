@@ -1,14 +1,11 @@
 package com.foodfast.order_service.service;
 
 import com.foodfast.order_service.model.Order;
-import com.foodfast.order_service.model.OrderItem;
 import com.foodfast.order_service.repository.OrderRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;

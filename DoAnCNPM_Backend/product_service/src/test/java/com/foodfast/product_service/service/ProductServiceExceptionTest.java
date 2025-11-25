@@ -44,7 +44,7 @@ public class ProductServiceExceptionTest {
         // Service might allow null, so we test that repository.save is called
         when(productRepository.save(any())).thenReturn(testProduct);
         
-        Product result = productService.createProduct(null);
+        productService.createProduct(null);
         
         verify(productRepository).save(null);
     }

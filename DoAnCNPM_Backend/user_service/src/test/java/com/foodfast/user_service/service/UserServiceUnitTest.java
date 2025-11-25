@@ -290,7 +290,7 @@ class UserServiceUnitTest {
         when(userRepository.save(any(User.class))).thenReturn(testUser);
 
         // Act
-        User updated = userService.updateUser(1L, updatedData);
+        userService.updateUser(1L, updatedData);
 
         // Assert
         verify(passwordEncoder, never()).encode(anyString());
