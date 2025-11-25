@@ -1,32 +1,32 @@
 {
-  "timestamp": "2025-11-24T08:58:15.836673",
+  "timestamp": "2025-11-26T01:56:37.648441",
   "services": {
     "user_service": {
       "total_tests": 48,
-      "passed_tests": 47,
-      "failed_tests": 1,
-      "execution_time_sec": 72.45,
-      "pass_rate_percent": 97.92,
+      "passed_tests": 48,
+      "failed_tests": 0,
+      "execution_time_sec": 71.45,
+      "pass_rate_percent": 100.0,
       "test_classes": 5,
-      "status": "FAIL"
+      "status": "PASS"
     },
     "product_service": {
       "total_tests": 27,
       "passed_tests": 27,
       "failed_tests": 0,
-      "execution_time_sec": 4.56,
+      "execution_time_sec": 4.59,
       "pass_rate_percent": 100.0,
       "test_classes": 4,
       "status": "PASS"
     },
     "drone_service": {
       "total_tests": 13,
-      "passed_tests": 12,
-      "failed_tests": 1,
-      "execution_time_sec": 45.32,
-      "pass_rate_percent": 92.31,
+      "passed_tests": 13,
+      "failed_tests": 0,
+      "execution_time_sec": 48.48,
+      "pass_rate_percent": 100.0,
       "test_classes": 3,
-      "status": "FAIL"
+      "status": "PASS"
     },
     "order_service": {
       "total_tests": 4,
@@ -58,11 +58,11 @@
   },
   "summary": {
     "total_tests": 116,
-    "total_passed": 114,
-    "total_failed": 2,
-    "total_time_sec": 203.91,
-    "pass_rate_percent": 98.28,
+    "total_passed": 116,
+    "total_failed": 0,
+    "total_time_sec": 206.1,
+    "pass_rate_percent": 100.0,
     "services_count": 6,
-    "status": "FAIL"
+    "status": "PASS"
   }
 }

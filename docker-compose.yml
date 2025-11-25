@@ -1,6 +1,6 @@
 services:
   postgres-db:
-    image: postgres:16
+    image: postgres:17
     container_name: postgres-db
     environment:
       POSTGRES_USER: postgres
@@ -236,9 +236,9 @@ services:
     container_name: metrics-server
     working_dir: /workspace
     volumes:
-      - ./monitoring/metrics_server.py:/workspace/metrics_server.py
-      - ./monitoring/metrics:/metrics
-    command: python /workspace/metrics_server.py
+      - ./monitoring/metrics-server.py:/workspace/metrics-server.py
+      - ./monitoring/metrics:/workspace/metrics
+    command: python /workspace/metrics-server.py
     ports:
       - "9091:9091"
     networks:
