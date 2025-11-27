@@ -68,3 +68,10 @@ scrape_configs:
       - targets: ["metrics-server:9091"]
     scrape_interval: 30s
 
+  # ===== DroneDelivery Backend =====
+  - job_name: "drone-delivery-backend"
+    static_configs:
+      - targets: ["drone-delivery-backend:5000"]
+    scrape_interval: 15s
+    scrape_timeout: 10s
+
