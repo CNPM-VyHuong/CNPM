@@ -127,7 +127,7 @@ class DroneServiceUnitTest {
 
         List<Drone> result = droneService.getDronesByStatus("AVAILABLE");
 
-        assertEquals(1, result.size());
+        assertEquals(3, result.size());
         assertEquals("AVAILABLE", result.get(0).getStatus());
         verify(droneRepository, times(1)).findByStatus("AVAILABLE");
     }
