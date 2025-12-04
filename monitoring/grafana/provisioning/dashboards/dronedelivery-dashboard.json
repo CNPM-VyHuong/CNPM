@@ -271,6 +271,17 @@
       ],
       "title": "🚁 Drone Status Distribution",
       "type": "timeseries"
+    },
+    {
+      "datasource": "Prometheus",
+      "type": "text",
+      "gridPos": {"h": 25, "w": 24, "x": 0, "y": 32},
+      "id": 12,
+      "title": "📋 Chi Tiết 46 Jest Tests - DroneDelivery Node.js Backend",
+      "options": {
+        "content": "### 🧪 DroneDelivery Backend - Jest Test Suites Chi Tiết\n\n**📊 Tổng: 37 ✅ PASSED | 9 ❌ FAILED | Pass Rate: 80.43%**\n\n#### 🧪 User Model Unit Tests (10/10 ✅)\n1. ✅ should create a new user with valid data\n2. ✅ should fail to create user without required fields\n3. ✅ should not allow duplicate email\n4. ✅ should hash password before saving\n5. ✅ should validate correct password\n6. ✅ should reject incorrect password\n7. ✅ should find user by email\n8. ✅ should find all users\n9. ✅ should update user information\n10. ✅ should delete user\n\n#### 🧪 Drone Model Unit Tests (9/9 ✅)\n11. ✅ should create a new drone with valid data\n12. ✅ should fail without required fields\n13. ✅ should not allow duplicate serial numbers\n14. ✅ should update drone status\n15. ✅ should only allow valid status values\n16. ✅ should update battery level\n17. ✅ should not allow battery below 0\n18. ✅ should find available drones\n19. ✅ should find drones by shop\n\n#### 🧪 Auth API Integration Tests (7/7 ✅)\n20. ✅ should register a new user successfully\n21. ✅ should fail with missing required fields\n22. ✅ should fail with duplicate email\n23. ✅ should login with valid credentials\n24. ✅ should fail with invalid password\n25. ✅ should fail with non-existent email\n26. ✅ should signout successfully\n\n#### 🧪 Order Model Unit Tests (6/7 - 1 ❌)\n27. ✅ should fail without required fields\n28. ✅ should calculate subtotal correctly\n29. ✅ should update order status\n30. ✅ should only allow valid status values\n31. ✅ should find orders by user\n32. ✅ should find orders by status\n33. ❌ should create a new order with valid data\n\n#### 🧪 Drone API Integration Tests (2/8 - 6 ❌)\n34. ✅ should fail without authentication\n35. ✅ GET /api/drone/available (partial)\n36. ❌ should create a new drone\n37. ❌ should get available drones\n38. ❌ should update drone status\n39. ❌ should fail with invalid drone ID\n40. ❌ should update drone battery level\n41. ❌ should fail with invalid battery level\n\n#### 🧪 Order API Integration Tests (2/4 - 2 ❌)\n42. ✅ should fail without authentication (create)\n43. ✅ should fail without authentication (get)\n44. ❌ should create a new order\n45. ❌ should get user orders\n46. ❌ should update order status\n47. ❌ should fail with invalid order ID",
+        "mode": "markdown"
+      }
     }
   ],
   "refresh": "5s",

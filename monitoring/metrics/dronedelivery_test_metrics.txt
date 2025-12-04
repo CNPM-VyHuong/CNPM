@@ -1,4 +1,4 @@
-﻿# HELP dronedelivery_test_total Total number of tests
+# HELP dronedelivery_test_total Total number of tests
 # TYPE dronedelivery_test_total gauge
 dronedelivery_test_total 46
 
@@ -14,18 +14,66 @@ dronedelivery_test_failed 9
 # TYPE dronedelivery_test_pass_rate gauge
 dronedelivery_test_pass_rate 80.43
 
-# HELP dronedelivery_coverage_statements Statement coverage percentage
+# HELP dronedelivery_suite_user_model_unit_tests_passed User Model Unit Tests passed tests
+# TYPE dronedelivery_suite_user_model_unit_tests_passed gauge
+dronedelivery_suite_user_model_unit_tests_passed{suite="User Model Unit Tests"} 10
+
+# HELP dronedelivery_suite_user_model_unit_tests_failed User Model Unit Tests failed tests
+# TYPE dronedelivery_suite_user_model_unit_tests_failed gauge
+dronedelivery_suite_user_model_unit_tests_failed{suite="User Model Unit Tests"} 0
+
+# HELP dronedelivery_suite_drone_model_unit_tests_passed Drone Model Unit Tests passed tests
+# TYPE dronedelivery_suite_drone_model_unit_tests_passed gauge
+dronedelivery_suite_drone_model_unit_tests_passed{suite="Drone Model Unit Tests"} 10
+
+# HELP dronedelivery_suite_drone_model_unit_tests_failed Drone Model Unit Tests failed tests
+# TYPE dronedelivery_suite_drone_model_unit_tests_failed gauge
+dronedelivery_suite_drone_model_unit_tests_failed{suite="Drone Model Unit Tests"} 0
+
+# HELP dronedelivery_suite_auth_api_integration_tests_passed Auth API Integration Tests passed tests
+# TYPE dronedelivery_suite_auth_api_integration_tests_passed gauge
+dronedelivery_suite_auth_api_integration_tests_passed{suite="Auth API Integration Tests"} 7
+
+# HELP dronedelivery_suite_auth_api_integration_tests_failed Auth API Integration Tests failed tests
+# TYPE dronedelivery_suite_auth_api_integration_tests_failed gauge
+dronedelivery_suite_auth_api_integration_tests_failed{suite="Auth API Integration Tests"} 0
+
+# HELP dronedelivery_suite_order_model_unit_tests_passed Order Model Unit Tests passed tests
+# TYPE dronedelivery_suite_order_model_unit_tests_passed gauge
+dronedelivery_suite_order_model_unit_tests_passed{suite="Order Model Unit Tests"} 6
+
+# HELP dronedelivery_suite_order_model_unit_tests_failed Order Model Unit Tests failed tests
+# TYPE dronedelivery_suite_order_model_unit_tests_failed gauge
+dronedelivery_suite_order_model_unit_tests_failed{suite="Order Model Unit Tests"} 1
+
+# HELP dronedelivery_suite_drone_api_integration_tests_passed Drone API Integration Tests passed tests
+# TYPE dronedelivery_suite_drone_api_integration_tests_passed gauge
+dronedelivery_suite_drone_api_integration_tests_passed{suite="Drone API Integration Tests"} 2
+
+# HELP dronedelivery_suite_drone_api_integration_tests_failed Drone API Integration Tests failed tests
+# TYPE dronedelivery_suite_drone_api_integration_tests_failed gauge
+dronedelivery_suite_drone_api_integration_tests_failed{suite="Drone API Integration Tests"} 6
+
+# HELP dronedelivery_suite_order_api_integration_tests_passed Order API Integration Tests passed tests
+# TYPE dronedelivery_suite_order_api_integration_tests_passed gauge
+dronedelivery_suite_order_api_integration_tests_passed{suite="Order API Integration Tests"} 2
+
+# HELP dronedelivery_suite_order_api_integration_tests_failed Order API Integration Tests failed tests
+# TYPE dronedelivery_suite_order_api_integration_tests_failed gauge
+dronedelivery_suite_order_api_integration_tests_failed{suite="Order API Integration Tests"} 2
+
+# HELP dronedelivery_coverage_statements Statements coverage percentage
 # TYPE dronedelivery_coverage_statements gauge
 dronedelivery_coverage_statements 10.32
 
-# HELP dronedelivery_coverage_branches Branch coverage percentage
+# HELP dronedelivery_coverage_branches Branches coverage percentage
 # TYPE dronedelivery_coverage_branches gauge
 dronedelivery_coverage_branches 3.03
 
-# HELP dronedelivery_coverage_functions Function coverage percentage
+# HELP dronedelivery_coverage_functions Functions coverage percentage
 # TYPE dronedelivery_coverage_functions gauge
 dronedelivery_coverage_functions 10.61
 
-# HELP dronedelivery_coverage_lines Line coverage percentage
+# HELP dronedelivery_coverage_lines Lines coverage percentage
 # TYPE dronedelivery_coverage_lines gauge
 dronedelivery_coverage_lines 10.42

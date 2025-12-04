@@ -1,0 +1,331 @@
+[
+  {
+    "ID": 1,
+    "Test Suite": "User Model Unit Tests",
+    "Test Name": "should create a new user with valid data",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 2,
+    "Test Suite": "User Model Unit Tests",
+    "Test Name": "should fail to create user without required fields",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 3,
+    "Test Suite": "User Model Unit Tests",
+    "Test Name": "should not allow duplicate email",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 4,
+    "Test Suite": "User Model Unit Tests",
+    "Test Name": "should hash password before saving",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 5,
+    "Test Suite": "User Model Unit Tests",
+    "Test Name": "should validate correct password",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 6,
+    "Test Suite": "User Model Unit Tests",
+    "Test Name": "should reject incorrect password",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 7,
+    "Test Suite": "User Model Unit Tests",
+    "Test Name": "should find user by email",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 8,
+    "Test Suite": "User Model Unit Tests",
+    "Test Name": "should find all users",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 9,
+    "Test Suite": "User Model Unit Tests",
+    "Test Name": "should update user information",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 10,
+    "Test Suite": "User Model Unit Tests",
+    "Test Name": "should delete user",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 11,
+    "Test Suite": "Drone Model Unit Tests",
+    "Test Name": "should create a new drone with valid data",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 12,
+    "Test Suite": "Drone Model Unit Tests",
+    "Test Name": "should fail without required fields",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 13,
+    "Test Suite": "Drone Model Unit Tests",
+    "Test Name": "should not allow duplicate serial numbers",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 14,
+    "Test Suite": "Drone Model Unit Tests",
+    "Test Name": "should update drone status",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 15,
+    "Test Suite": "Drone Model Unit Tests",
+    "Test Name": "should only allow valid status values",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 16,
+    "Test Suite": "Drone Model Unit Tests",
+    "Test Name": "should update battery level",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 17,
+    "Test Suite": "Drone Model Unit Tests",
+    "Test Name": "should not allow battery below 0",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 18,
+    "Test Suite": "Drone Model Unit Tests",
+    "Test Name": "should find available drones",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 19,
+    "Test Suite": "Drone Model Unit Tests",
+    "Test Name": "should find drones by shop",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 20,
+    "Test Suite": "Auth API Integration Tests",
+    "Test Name": "should register a new user successfully",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 21,
+    "Test Suite": "Auth API Integration Tests",
+    "Test Name": "should fail with missing required fields",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 22,
+    "Test Suite": "Auth API Integration Tests",
+    "Test Name": "should fail with duplicate email",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 23,
+    "Test Suite": "Auth API Integration Tests",
+    "Test Name": "should login with valid credentials",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 24,
+    "Test Suite": "Auth API Integration Tests",
+    "Test Name": "should fail with invalid password",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 25,
+    "Test Suite": "Auth API Integration Tests",
+    "Test Name": "should fail with non-existent email",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 26,
+    "Test Suite": "Auth API Integration Tests",
+    "Test Name": "should signout successfully",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 27,
+    "Test Suite": "Order Model Unit Tests",
+    "Test Name": "should fail without required fields",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 28,
+    "Test Suite": "Order Model Unit Tests",
+    "Test Name": "should calculate subtotal correctly",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 29,
+    "Test Suite": "Order Model Unit Tests",
+    "Test Name": "should update order status",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 30,
+    "Test Suite": "Order Model Unit Tests",
+    "Test Name": "should only allow valid status values",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 31,
+    "Test Suite": "Order Model Unit Tests",
+    "Test Name": "should find orders by user",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 32,
+    "Test Suite": "Order Model Unit Tests",
+    "Test Name": "should find orders by status",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 33,
+    "Test Suite": "Order Model Unit Tests",
+    "Test Name": "should create a new order with valid data",
+    "Result": "❌ FAIL",
+    "Status": "fail"
+  },
+  {
+    "ID": 34,
+    "Test Suite": "Drone API Integration Tests",
+    "Test Name": "should fail without authentication",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 35,
+    "Test Suite": "Drone API Integration Tests",
+    "Test Name": "GET /api/drone/available (partial)",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 36,
+    "Test Suite": "Drone API Integration Tests",
+    "Test Name": "should create a new drone",
+    "Result": "❌ FAIL",
+    "Status": "fail"
+  },
+  {
+    "ID": 37,
+    "Test Suite": "Drone API Integration Tests",
+    "Test Name": "should get available drones",
+    "Result": "❌ FAIL",
+    "Status": "fail"
+  },
+  {
+    "ID": 38,
+    "Test Suite": "Drone API Integration Tests",
+    "Test Name": "should update drone status",
+    "Result": "❌ FAIL",
+    "Status": "fail"
+  },
+  {
+    "ID": 39,
+    "Test Suite": "Drone API Integration Tests",
+    "Test Name": "should fail with invalid drone ID",
+    "Result": "❌ FAIL",
+    "Status": "fail"
+  },
+  {
+    "ID": 40,
+    "Test Suite": "Drone API Integration Tests",
+    "Test Name": "should update drone battery level",
+    "Result": "❌ FAIL",
+    "Status": "fail"
+  },
+  {
+    "ID": 41,
+    "Test Suite": "Drone API Integration Tests",
+    "Test Name": "should fail with invalid battery level",
+    "Result": "❌ FAIL",
+    "Status": "fail"
+  },
+  {
+    "ID": 42,
+    "Test Suite": "Order API Integration Tests",
+    "Test Name": "should fail without authentication (create)",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 43,
+    "Test Suite": "Order API Integration Tests",
+    "Test Name": "should fail without authentication (get)",
+    "Result": "✅ PASS",
+    "Status": "pass"
+  },
+  {
+    "ID": 44,
+    "Test Suite": "Order API Integration Tests",
+    "Test Name": "should create a new order",
+    "Result": "❌ FAIL",
+    "Status": "fail"
+  },
+  {
+    "ID": 45,
+    "Test Suite": "Order API Integration Tests",
+    "Test Name": "should get user orders",
+    "Result": "❌ FAIL",
+    "Status": "fail"
+  },
+  {
+    "ID": 46,
+    "Test Suite": "Order API Integration Tests",
+    "Test Name": "should update order status",
+    "Result": "❌ FAIL",
+    "Status": "fail"
+  },
+  {
+    "ID": 47,
+    "Test Suite": "Order API Integration Tests",
+    "Test Name": "should fail with invalid order ID",
+    "Result": "❌ FAIL",
+    "Status": "fail"
+  }
+]
