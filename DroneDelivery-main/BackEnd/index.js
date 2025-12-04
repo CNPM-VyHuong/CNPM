@@ -19,6 +19,54 @@ import locationRouter from "./routes/location.routes.js";
 import adminRouter from "./routes/admin.routes.js";
 import reportRouter from "./routes/report.routes.js";
 import cors from "cors";
+import client from "prom-client";
+import Drone from "./models/drone.model.js";
+
+// Prometheus metrics setup
+const register = new client.Registry();
+client.collectDefaultMetrics({ register });
+
+// Custom metrics
+const httpRequestDuration = new client.Histogram({
+  name: 'http_request_duration_seconds',
+  help: 'Duration of HTTP requests in seconds',
+  labelNames: ['method', 'route', 'status_code'],
+  buckets: [0.1, 0.5, 1, 2, 5],
+  registers: [register],
+});
+
+const httpRequestTotal = new client.Counter({
+  name: 'http_requests_total',
+  help: 'Total number of HTTP requests',
+  labelNames: ['method', 'route', 'status_code'],
+  registers: [register],
+});
+
+const activeConnections = new client.Gauge({
+  name: 'active_connections',
+  help: 'Number of active connections',
+  registers: [register],
+});
+
+const droneStatusGauge = new client.Gauge({
+  name: 'drone_status',
+  help: 'Drone status by type',
+  labelNames: ['status'],
+  registers: [register],
+});
+
+// Function to update drone status metrics
+async function updateDroneMetrics() {
+  try {
+    const statuses = ['available', 'busy', 'maintenance', 'offline', 'retired'];
+    for (const status of statuses) {
+      const count = await Drone.countDocuments({ status });
+      droneStatusGauge.labels(status).set(count);
+    }
+  } catch (error) {
+    console.error('Error updating drone metrics:', error);
+  }
+}
 
 const app = express();
 const httpServer = createServer(app);
@@ -34,6 +82,17 @@ const PORT = process.env.PORT || 8000;
 // Make io accessible to routes
 app.set("io", io);
 
+// Metrics middleware
+app.use((req, res, next) => {
+  const start = Date.now();
+  res.on('finish', () => {
+    const duration = (Date.now() - start) / 1000;
+    httpRequestDuration.labels(req.method, req.route?.path || req.path, res.statusCode).observe(duration);
+    httpRequestTotal.labels(req.method, req.route?.path || req.path, res.statusCode).inc();
+  });
+  next();
+});
+
 app.use(
   cors({
     origin: true, // Allow all origins for development
@@ -42,6 +101,22 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
+
+// Metrics endpoint
+app.get('/metrics', async (req, res) => {
+  res.set('Content-Type', register.contentType);
+  res.end(await register.metrics());
+});
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({
+    status: 'healthy',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+  });
+});
+
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/shop", shopRouter);
@@ -59,6 +134,7 @@ app.use("/api/report", reportRouter);
 // Socket.io connection handling
 io.on("connection", (socket) => {
   console.log("Client connected:", socket.id);
+  activeConnections.inc();
 
   // Join room for specific order tracking
   socket.on("join-order", (orderId) => {
@@ -85,6 +161,7 @@ io.on("connection", (socket) => {
 
   socket.on("disconnect", () => {
     console.log("Client disconnected:", socket.id);
+    activeConnections.dec();
   });
 });
 
@@ -92,4 +169,13 @@ httpServer.listen(PORT, () => {
   connectDB();
   console.log(`Server is running on port ${PORT}`);
   console.log(`Socket.io server ready`);
+  console.log(`Metrics available at http://localhost:${PORT}/metrics`);
+  console.log(`Health check at http://localhost:${PORT}/health`);
+  
+  // Update drone metrics every 30 seconds
+  updateDroneMetrics(); // Initial update
+  setInterval(updateDroneMetrics, 30000);
 });
+
+export { app, register, httpRequestDuration, httpRequestTotal, activeConnections, droneStatusGauge };
+

@@ -1,0 +1,287 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": false,
+      "title": "← Quay lại Java Backend",
+      "tooltip": "Xem dashboard Java Backend",
+      "type": "link",
+      "url": "/d/java-backend-system"
+    }
+  ],
+  "panels": [
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "thresholds"},
+          "mappings": [],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "red", "value": null}, {"color": "yellow", "value": 50}, {"color": "green", "value": 80}]},
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 8, "w": 6, "x": 0, "y": 0},
+      "id": 1,
+      "options": {"orientation": "auto", "reduceOptions": {"values": false, "fields": "", "calcs": ["lastNotNull"]}, "showThresholdLabels": false, "showThresholdMarkers": true, "text": {}},
+      "pluginVersion": "8.0.0",
+      "targets": [{"expr": "dronedelivery_test_pass_rate", "format": "time_series", "intervalFactor": 2, "refId": "A"}],
+      "title": "🎯 Test Pass Rate",
+      "type": "gauge"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "thresholds"},
+          "mappings": [],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "blue", "value": null}]},
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 4, "w": 3, "x": 6, "y": 0},
+      "id": 2,
+      "options": {"colorMode": "background", "graphMode": "area", "justifyMode": "center", "orientation": "auto", "reduceOptions": {"values": false, "fields": "", "calcs": ["lastNotNull"]}, "text": {}, "textMode": "value_and_name"},
+      "pluginVersion": "8.0.0",
+      "targets": [{"expr": "dronedelivery_test_total", "format": "time_series", "intervalFactor": 2, "legendFormat": "Total Tests", "refId": "A"}],
+      "title": "📊 Total Tests",
+      "type": "stat"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "thresholds"},
+          "mappings": [],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}]},
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 4, "w": 3, "x": 9, "y": 0},
+      "id": 3,
+      "options": {"colorMode": "background", "graphMode": "area", "justifyMode": "center", "orientation": "auto", "reduceOptions": {"values": false, "fields": "", "calcs": ["lastNotNull"]}, "text": {}, "textMode": "value_and_name"},
+      "pluginVersion": "8.0.0",
+      "targets": [{"expr": "dronedelivery_test_passed", "format": "time_series", "intervalFactor": 2, "legendFormat": "Passed", "refId": "A"}],
+      "title": "✅ Passed",
+      "type": "stat"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "thresholds"},
+          "mappings": [],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "red", "value": null}]},
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 4, "w": 3, "x": 12, "y": 0},
+      "id": 4,
+      "options": {"colorMode": "background", "graphMode": "area", "justifyMode": "center", "orientation": "auto", "reduceOptions": {"values": false, "fields": "", "calcs": ["lastNotNull"]}, "text": {}, "textMode": "value_and_name"},
+      "pluginVersion": "8.0.0",
+      "targets": [{"expr": "dronedelivery_test_failed", "format": "time_series", "intervalFactor": 2, "legendFormat": "Failed", "refId": "A"}],
+      "title": "❌ Failed",
+      "type": "stat"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "palette-classic"},
+          "custom": {"axisLabel": "", "axisPlacement": "auto", "barAlignment": 0, "drawStyle": "line", "fillOpacity": 20, "gradientMode": "none", "hideFrom": {"tooltip": false, "viz": false, "legend": false}, "lineInterpolation": "smooth", "lineWidth": 2, "pointSize": 5, "scaleDistribution": {"type": "linear"}, "showPoints": "auto", "spanNulls": true, "stacking": {"group": "A", "mode": "none"}, "thresholdsStyle": {"mode": "off"}},
+          "mappings": [],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}]},
+          "unit": "short"
+        },
+        "overrides": [
+          {"matcher": {"id": "byName", "options": "Passed"}, "properties": [{"id": "color", "value": {"fixedColor": "green", "mode": "fixed"}}]},
+          {"matcher": {"id": "byName", "options": "Failed"}, "properties": [{"id": "color", "value": {"fixedColor": "red", "mode": "fixed"}}]},
+          {"matcher": {"id": "byName", "options": "Total Tests"}, "properties": [{"id": "color", "value": {"fixedColor": "blue", "mode": "fixed"}}]}
+        ]
+      },
+      "gridPos": {"h": 8, "w": 9, "x": 15, "y": 0},
+      "id": 5,
+      "options": {"legend": {"calcs": ["mean", "last", "max"], "displayMode": "table", "placement": "bottom", "showLegend": true}, "tooltip": {"mode": "multi", "sort": "desc"}},
+      "pluginVersion": "8.0.0",
+      "targets": [
+        {"expr": "dronedelivery_test_total", "format": "time_series", "intervalFactor": 2, "legendFormat": "Total Tests", "refId": "A"},
+        {"expr": "dronedelivery_test_passed", "format": "time_series", "intervalFactor": 2, "legendFormat": "Passed", "refId": "B"},
+        {"expr": "dronedelivery_test_failed", "format": "time_series", "intervalFactor": 2, "legendFormat": "Failed", "refId": "C"}
+      ],
+      "title": "📈 Test Results Over Time",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "thresholds"},
+          "mappings": [],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "red", "value": null}, {"color": "yellow", "value": 50}, {"color": "green", "value": 70}]},
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8},
+      "id": 6,
+      "options": {"displayMode": "gradient", "orientation": "horizontal", "reduceOptions": {"values": false, "fields": "", "calcs": ["lastNotNull"]}, "showUnfilled": true, "text": {}},
+      "pluginVersion": "8.0.0",
+      "targets": [
+        {"expr": "dronedelivery_coverage_statements", "format": "time_series", "intervalFactor": 2, "legendFormat": "Statements", "refId": "A"},
+        {"expr": "dronedelivery_coverage_branches", "format": "time_series", "intervalFactor": 2, "legendFormat": "Branches", "refId": "B"},
+        {"expr": "dronedelivery_coverage_functions", "format": "time_series", "intervalFactor": 2, "legendFormat": "Functions", "refId": "C"},
+        {"expr": "dronedelivery_coverage_lines", "format": "time_series", "intervalFactor": 2, "legendFormat": "Lines", "refId": "D"}
+      ],
+      "title": "📊 Code Coverage",
+      "type": "bargauge"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "palette-classic"},
+          "custom": {"axisLabel": "", "axisPlacement": "auto", "barAlignment": 0, "drawStyle": "line", "fillOpacity": 20, "gradientMode": "none", "hideFrom": {"tooltip": false, "viz": false, "legend": false}, "lineInterpolation": "smooth", "lineWidth": 2, "pointSize": 5, "scaleDistribution": {"type": "linear"}, "showPoints": "auto", "spanNulls": true, "stacking": {"group": "A", "mode": "none"}, "thresholdsStyle": {"mode": "off"}},
+          "mappings": [],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}]},
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8},
+      "id": 7,
+      "options": {"legend": {"calcs": ["mean", "last", "max"], "displayMode": "table", "placement": "bottom", "showLegend": true}, "tooltip": {"mode": "multi", "sort": "desc"}},
+      "pluginVersion": "8.0.0",
+      "targets": [
+        {"expr": "dronedelivery_coverage_statements", "format": "time_series", "intervalFactor": 2, "legendFormat": "Statements %", "refId": "A"},
+        {"expr": "dronedelivery_coverage_branches", "format": "time_series", "intervalFactor": 2, "legendFormat": "Branches %", "refId": "B"},
+        {"expr": "dronedelivery_coverage_functions", "format": "time_series", "intervalFactor": 2, "legendFormat": "Functions %", "refId": "C"},
+        {"expr": "dronedelivery_coverage_lines", "format": "time_series", "intervalFactor": 2, "legendFormat": "Lines %", "refId": "D"}
+      ],
+      "title": "📉 Coverage Trends",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "palette-classic"},
+          "custom": {"axisLabel": "", "axisPlacement": "auto", "barAlignment": 0, "drawStyle": "line", "fillOpacity": 20, "gradientMode": "none", "hideFrom": {"tooltip": false, "viz": false, "legend": false}, "lineInterpolation": "smooth", "lineWidth": 2, "pointSize": 5, "scaleDistribution": {"type": "linear"}, "showPoints": "auto", "spanNulls": true, "stacking": {"group": "A", "mode": "none"}, "thresholdsStyle": {"mode": "off"}},
+          "mappings": [],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}]},
+          "unit": "reqps"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 16},
+      "id": 8,
+      "options": {"legend": {"calcs": ["mean", "max", "last"], "displayMode": "table", "placement": "bottom", "showLegend": true}, "tooltip": {"mode": "multi", "sort": "desc"}},
+      "pluginVersion": "8.0.0",
+      "targets": [
+        {"expr": "rate(http_requests_total{job=\"drone-delivery-backend\"}[1m])", "format": "time_series", "intervalFactor": 2, "legendFormat": "{{method}} {{route}}", "refId": "A"}
+      ],
+      "title": "🚀 HTTP Request Rate",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "palette-classic"},
+          "custom": {"axisLabel": "", "axisPlacement": "auto", "barAlignment": 0, "drawStyle": "line", "fillOpacity": 20, "gradientMode": "none", "hideFrom": {"tooltip": false, "viz": false, "legend": false}, "lineInterpolation": "smooth", "lineWidth": 2, "pointSize": 5, "scaleDistribution": {"type": "linear"}, "showPoints": "auto", "spanNulls": true, "stacking": {"group": "A", "mode": "none"}, "thresholdsStyle": {"mode": "off"}},
+          "mappings": [],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}]},
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 16},
+      "id": 9,
+      "options": {"legend": {"calcs": ["mean", "max", "last"], "displayMode": "table", "placement": "bottom", "showLegend": true}, "tooltip": {"mode": "multi", "sort": "desc"}},
+      "pluginVersion": "8.0.0",
+      "targets": [
+        {"expr": "histogram_quantile(0.95, rate(http_request_duration_seconds_bucket{job=\"drone-delivery-backend\"}[5m]))", "format": "time_series", "intervalFactor": 2, "legendFormat": "p95", "refId": "A"},
+        {"expr": "histogram_quantile(0.99, rate(http_request_duration_seconds_bucket{job=\"drone-delivery-backend\"}[5m]))", "format": "time_series", "intervalFactor": 2, "legendFormat": "p99", "refId": "B"}
+      ],
+      "title": "⚡ Response Time (p95/p99)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "thresholds"},
+          "mappings": [],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "yellow", "value": 10}, {"color": "red", "value": 50}]},
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 24},
+      "id": 10,
+      "options": {"colorMode": "background", "graphMode": "area", "justifyMode": "center", "orientation": "auto", "reduceOptions": {"values": false, "fields": "", "calcs": ["lastNotNull"]}, "text": {}, "textMode": "value_and_name"},
+      "pluginVersion": "8.0.0",
+      "targets": [
+        {"expr": "active_connections{job=\"drone-delivery-backend\"}", "format": "time_series", "intervalFactor": 2, "legendFormat": "Active Connections", "refId": "A"}
+      ],
+      "title": "🔌 Active Connections",
+      "type": "stat"
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "palette-classic"},
+          "custom": {"axisLabel": "", "axisPlacement": "auto", "barAlignment": 0, "drawStyle": "line", "fillOpacity": 20, "gradientMode": "none", "hideFrom": {"tooltip": false, "viz": false, "legend": false}, "lineInterpolation": "smooth", "lineWidth": 2, "pointSize": 5, "scaleDistribution": {"type": "linear"}, "showPoints": "auto", "spanNulls": true, "stacking": {"group": "A", "mode": "normal"}, "thresholdsStyle": {"mode": "off"}},
+          "mappings": [],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}]},
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 24},
+      "id": 11,
+      "options": {"legend": {"calcs": ["mean", "max", "last"], "displayMode": "table", "placement": "bottom", "showLegend": true}, "tooltip": {"mode": "multi", "sort": "desc"}},
+      "pluginVersion": "8.0.0",
+      "targets": [
+        {"expr": "drone_status{job=\"drone-delivery-backend\"}", "format": "time_series", "intervalFactor": 2, "legendFormat": "{{status}}", "refId": "A"}
+      ],
+      "title": "🚁 Drone Status Distribution",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 27,
+  "style": "dark",
+  "tags": ["dronedelivery", "nodejs", "new-system"],
+  "templating": {"list": []},
+  "time": {"from": "now-1h", "to": "now"},
+  "timepicker": {},
+  "timezone": "",
+  "title": "🚁 DroneDelivery System (New)",
+  "uid": "dronedelivery-system",
+  "version": 1
+}

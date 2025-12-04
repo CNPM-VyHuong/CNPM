@@ -1,0 +1,31 @@
+﻿# HELP dronedelivery_test_total Total number of tests
+# TYPE dronedelivery_test_total gauge
+dronedelivery_test_total 46
+
+# HELP dronedelivery_test_passed Number of passed tests
+# TYPE dronedelivery_test_passed gauge
+dronedelivery_test_passed 37
+
+# HELP dronedelivery_test_failed Number of failed tests
+# TYPE dronedelivery_test_failed gauge
+dronedelivery_test_failed 9
+
+# HELP dronedelivery_test_pass_rate Test pass rate percentage
+# TYPE dronedelivery_test_pass_rate gauge
+dronedelivery_test_pass_rate 80.43
+
+# HELP dronedelivery_coverage_statements Statement coverage percentage
+# TYPE dronedelivery_coverage_statements gauge
+dronedelivery_coverage_statements 10.32
+
+# HELP dronedelivery_coverage_branches Branch coverage percentage
+# TYPE dronedelivery_coverage_branches gauge
+dronedelivery_coverage_branches 3.03
+
+# HELP dronedelivery_coverage_functions Function coverage percentage
+# TYPE dronedelivery_coverage_functions gauge
+dronedelivery_coverage_functions 10.61
+
+# HELP dronedelivery_coverage_lines Line coverage percentage
+# TYPE dronedelivery_coverage_lines gauge
+dronedelivery_coverage_lines 10.42

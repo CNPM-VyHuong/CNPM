@@ -16,7 +16,20 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "links": [],
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": false,
+      "title": "→ Xem DroneDelivery System",
+      "tooltip": "Chuyển sang dashboard DroneDelivery",
+      "type": "link",
+      "url": "/d/dronedelivery-system"
+    }
+  ],
   "panels": [
     {
       "datasource": "Prometheus",
@@ -390,12 +403,12 @@
   "refresh": "5s",
   "schemaVersion": 27,
   "style": "dark",
-  "tags": ["fastfood", "microservices", "k6", "performance"],
+  "tags": ["java", "microservices", "spring-boot", "fastfood"],
   "templating": {"list": []},
   "time": {"from": "now-1h", "to": "now"},
   "timepicker": {},
   "timezone": "",
-  "title": "🚀 CNPM FastFood - Complete System Dashboard",
-  "uid": "fastfood-services",
-  "version": 2
+  "title": "☕ Java Backend - FastFood System",
+  "uid": "java-backend-system",
+  "version": 4
 }

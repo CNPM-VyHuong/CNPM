@@ -32,8 +32,13 @@ class SingleServiceTestRunner:
             print(f"[!] ERROR: Service path does not exist: {self.service_path}")
             return False
         
-        # Run Maven test
-        cmd = ["mvn", "test", "-q"]
+        # Use Maven wrapper
+        mvnw_cmd = self.service_path / "mvnw.cmd"
+        if mvnw_cmd.exists():
+            cmd = ["cmd", "/c", str(mvnw_cmd), "test", "-q"]
+        else:
+            cmd = ["mvn", "test", "-q"]
+        
         print(f"[*] Running: {' '.join(cmd)}")
         print(f"{'='*70}\n")
         
